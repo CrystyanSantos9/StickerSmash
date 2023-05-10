@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 export const AuthContext = createContext({});
 
 function AuthProvider({ children }) {
+  const [user, onChangeUser] = React.useState(null);
   const [name, onNameChangeText] = React.useState("");
   const [nameError, onNameErrorChangeText] = React.useState("");
   const [password, onPasswordChangeNumber] = React.useState("");
@@ -29,6 +30,7 @@ function AuthProvider({ children }) {
     } else {
       onPasswordErrorChangeNumber("");
     }
+
     navigation.navigate("UserDetails");
   }
 
@@ -45,7 +47,8 @@ function AuthProvider({ children }) {
         onPasswordChangeNumber,
         onPasswordErrorChangeNumber,
         placeHolderName,
-        placeHolderPassword
+        placeHolderPassword,
+        authenticated: !!user,
       }}
     >
       {children}

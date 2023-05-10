@@ -40,7 +40,7 @@ export default function UserDetails() {
 
 <SafeAreaView style={styles.container}>
         <ScrollView style={styles.scrollView}>
-          <Text style={styles.name}>Crystyan Santos</Text>
+          <Text style={styles.name}>{name}</Text>
           <Text style={styles.info}>CPF: 133.218.187-28</Text>
           <Text style={styles.info}>Curso: Engenharia da Computação </Text>
           <Text style={styles.info}>Matrícula: 201701009-6 </Text>
