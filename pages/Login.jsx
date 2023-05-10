@@ -24,11 +24,16 @@ export default function Login({ navigation }) {
     onPasswordErrorChangeNumber,
     placeHolderName,
     placeHolderPassword,
+    authenticated,
+    user,
   } = useContext(AuthContext);
 
   return (
     <View style={styles.container}>
-      <Text style={{ color: "#fff", marginBottom: 50, fontSize: 22 }}>FIAP Tech</Text>
+      <Text style={{ color: "#fff" }}>{String(user?.username)}</Text>
+      <Text style={{ color: "#fff", marginBottom: 50, fontSize: 22 }}>
+        FIAP Tech
+      </Text>
       <SafeAreaView style={styles.safeAreaContainer}>
         <TextInput
           style={
@@ -91,14 +96,14 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     padding: 10,
     borderRadius: 15,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
   inputError: {
     height: 40,
     margin: 12,
     borderWidth: 1,
     padding: 10,
-    backgroundColor: "#ffd700"
+    backgroundColor: "#ffd700",
   },
   safeAreaContainer: {
     backgroundColor: "#FF1493",

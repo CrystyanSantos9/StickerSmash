@@ -7,21 +7,25 @@ import {
   TouchableOpacity,
   ScrollView,
   SafeAreaView,
+  Button,
 } from "react-native";
 
 import { StatusBar } from "expo-status-bar";
 
-
 //context de auth
 import { AuthContext } from "../contexts/auth";
 
+import { useNavigation } from "@react-navigation/native";
+
 export default function UserDetails() {
   //usando context - pega propriedade nome passada ao provider
-  const { name } = useContext(AuthContext);
+  const { authenticated, user, Logout } = useContext(AuthContext);
+  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
+        <Text style={{ color: "#fff" }}>{String(authenticated)}</Text>
         <Image
           style={styles.logo}
           source={{
@@ -38,19 +42,26 @@ export default function UserDetails() {
         source={{ uri: "https://github.com/CrystyanSantos9.png" }}
       />
 
-<SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <ScrollView style={styles.scrollView}>
-          <Text style={styles.name}>{name}</Text>
+          <TouchableOpacity onPress={()=>navigation.navigate('Info')}>
+            <Text style={styles.name}>{user?.username}</Text>
+          </TouchableOpacity>
           <Text style={styles.info}>CPF: 133.218.187-28</Text>
           <Text style={styles.info}>Curso: Engenharia da Computação </Text>
           <Text style={styles.info}>Matrícula: 201701009-6 </Text>
           <Text style={styles.info}>Período: 6 º</Text>
           <Text style={styles.info}>Validade: Jan/2024 </Text>
           <Text style={styles.info}>Conceito: 6.75 </Text>
+          <Button
+            style={styles.loginAction}
+            title="Sign out"
+            onPress={Logout}
+          />
         </ScrollView>
-        <Text style={styles.textBottom}>© Fiap 2023  </Text>
-        </SafeAreaView>
-        </View>
+        <Text style={styles.textBottom}>© Fiap 2023 </Text>
+      </SafeAreaView>
+    </View>
   );
 }
 
@@ -123,6 +134,7 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 16,
     textAlign: "center",
+    marginTop:20,
     backgroundColor: "#FF1493",
   },
   description: {
@@ -141,5 +153,8 @@ const styles = StyleSheet.create({
     width: 250,
     borderRadius: 30,
     backgroundColor: "#00BFFF",
+  },
+  loginInput: {
+    width: "100%",
   },
 });
