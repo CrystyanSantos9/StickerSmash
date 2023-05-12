@@ -44,7 +44,7 @@ export default function UserDetails() {
 
       <SafeAreaView style={styles.container}>
         <ScrollView style={styles.scrollView}>
-          <TouchableOpacity onPress={()=>navigation.navigate('Info')}>
+          <TouchableOpacity onPress={()=>navigation.navigate('Counts')}>
             <Text style={styles.name}>{user?.username}</Text>
           </TouchableOpacity>
           <Text style={styles.info}>CPF: 133.218.187-28</Text>

@@ -32,7 +32,6 @@ const Info = () => {
 
         const userList = await getUsers();
         console.log(userList.data);
-        
       } catch (e) {
         // error reading value
       }

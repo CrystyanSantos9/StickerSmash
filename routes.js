@@ -15,6 +15,7 @@ import { AuthContext } from "./contexts/auth";
 import Login from "./pages/Login";
 import UserDetails from "./pages/UserDetails";
 import Info from "./pages/Info";
+import Counts from "./pages/Counts";
 
 const Stack = createNativeStackNavigator();
 
@@ -34,13 +35,9 @@ const Stack = createNativeStackNavigator();
 function Routes() {
   const { authenticated, loading } = useContext(AuthContext);
 
-  if (!loading) {
-    return (
-      <View>
-        <Text>Loading</Text>
-      </View>
-    );
-  }
+  // if (loading) {
+  //   return <Counts />;
+  // }
   return (
     <Stack.Navigator>
       {!authenticated ? (
@@ -54,7 +51,7 @@ function Routes() {
       ) : (
         <>
           <Stack.Screen name="UserDetails" component={UserDetails} />
-          <Stack.Screen name="Info" component={Info} />
+          <Stack.Screen name="Counts" component={Counts} />
         </>
       )}
     </Stack.Navigator>
