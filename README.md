@@ -1,8 +1,8 @@
 ### Gerar Build com expo
 
-NODE Version |Expo CLI Version | JAVA Version | SDK Version | 
---- | --- | --- | --- |
-v14.17.3 | 6.3.7 | openjdk version "11.0.18" 2023-01-17 LTS | 34 |
+| NODE Version | Expo CLI Version | JAVA Version                             | SDK Version |
+| ------------ | ---------------- | ---------------------------------------- | ----------- |
+| v14.17.3     | 6.3.7            | openjdk version "11.0.18" 2023-01-17 LTS | 34          |
 
 [Create Your First Build](https://docs.expo.dev/build/setup/)
 
@@ -56,14 +56,13 @@ eas build:configure
 eas build -p android --profile preview
 ```
 
-- Acompanhe o progresso de build na tela de BKO do expo, e ao final baixe o apk 
+- Acompanhe o progresso de build na tela de BKO do expo, e ao final baixe o apk
 
 ![BKOEXPO](github\images\image1.png)
 
 - Com o APK em mãos basta instalá-lo em seu smartphone compatível
 
-
-### Sobre rotas privadas 
+### Sobre rotas privadas
 
 - Para fazer com que suas rotas sejam privadas, temos algumas estratégias assim como no React
 
@@ -101,9 +100,9 @@ function Routes() {
 }
 ```
 
-Quando fizer isso, o uso do hook useNavigation ( React Native ) só será possível entre as Screens agrupadas nos blocos condicionais. Por exemplo, se Tentar fazer navegação entre Login e UserDetails, receberemos um alerta. Para essa navegação, não é necessário utilizar o navigation, a própria StackNavigation fará o redirecionamento de uma tela à outra. 
+Quando fizer isso, o uso do hook useNavigation ( React Native ) só será possível entre as Screens agrupadas nos blocos condicionais. Por exemplo, se Tentar fazer navegação entre Login e UserDetails, receberemos um alerta. Para essa navegação, não é necessário utilizar o navigation, a própria StackNavigation fará o redirecionamento de uma tela à outra.
 
-Mais detalhes na documentação. 
+Mais detalhes na documentação.
 
 ### Usando AsyncStorage no Expo
 
@@ -118,3 +117,11 @@ npx expo install axios
 ```
 
 Mais detalhes de uso podem ser vistos nesse artigo [How to use Axios...](https://sunnychopper.medium.com/how-to-use-axios-to-quickly-connect-to-an-api-in-your-react-native-application-a69c1c048f8e)
+
+### Para comunicação com socket.io
+
+```
+yarn add socket.io-client
+```
+
+Mais detalhes nesse artigo [Building a chat app with Socket.io and React Native](https://dev.to/novu/building-a-chat-app-with-socketio-and-react-native-k1b)
